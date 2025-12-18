@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Progressive Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css"
+    />
+    <style>
+      .hidden {
+        display: none;
+      }
+      .star {
+        color: #ef4444;
+        margin-left: 2px;
+      }
+      .modal-bg {
+        background: rgba(0, 0, 0, 0.4);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen p-6">
+    <form
+      id="mainForm"
+      action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DU7000006EuID"
+      method="POST"
+      class="bg-white p-8 rounded-2xl shadow-md w-full max-w-xl space-y-8 relative"
+      autocomplete="off"
+      novalidate
+    >
+      <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">
+        Progressive EOI Form
+      </h2>
+
+      <!-- Policy Changes -->
+      <div class="bg-gray-50 border rounded-xl p-6 shadow-inner">
+        <h3 class="text-xl font-semibold mb-4 text-gray-700">Policy Changes</h3>
+
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="block text-sm font-medium text-gray-700">
+            Email<span class="star">*</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            autocomplete="off"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2"
+            >Select the Request Type:</label
+          >
+          <div class="flex space-x-4 mb-2">
+            <label class="inline-flex items-center ">
+              <input
+                type="radio"
+                name="Is_this_a_quote_or_a_change_request__c"
+                value="Quote"
+                required
+                class="mr-2 "
+              />Quote
+            </label>
+            <label class="inline-flex items-center">
+              <input
+                type="radio"
+                name="Is_this_a_quote_or_a_change_request__c"
+                value="Endorse"
+                required
+                class="mr-2"
+              />Endorsement
+            </label>
+          </div>
+          <div id="quotePolicyError" class="error-message hidden">
+            Please select an option
+          </div>
+        </div>
+
+        <!-- Policy Action -->
+        <input
+          type="hidden"
+          id="00NU7000005zuNN"
+          name="Policy_Action__c"
+          value="EOI"
+        />
+
+        <!-- Policy Number -->
+        <div class="mb-3">
+          <label
+            for="00NU7000005zuX3"
+            class="block text-sm font-medium text-gray-700"
+          >
+            Policy Number<span class="star">*</span>
+          </label>
+          <input
+            type="text"
+            id="00NU7000005zuX3"
+            name="Policy_Number__c"
+            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+            autocomplete="off"
+          />
+        </div>
+
+        <!-- Effective Date -->
+        <div class="mb-3">
+          <label
+            for="00NU7000005zuLl"
+            class="block text-sm font-medium text-gray-700"
+          >
+            Effective Date (MM/DD/YYYY)<span class="star">*</span>
+          </label>
+          <input
+            type="text"
+            id="00NU7000005zuLl"
+            name="Date__c"
+            placeholder="MM/DD/YYYY"
+            maxlength="10"
+            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            autocomplete="off"
+          />
+        </div>
+      </div>
+
+      <!-- MORTGAGEE 1 -->
+      <div
+        id="mortgagee1"
+        class="bg-gray-50 border rounded-xl p-6 shadow-inner mt-8"
+      >
+        <h3 class="text-xl font-semibold mb-4 text-gray-700">
+          Mortgagee Information 1
+        </h3>
+
+        <!-- Mortgagee Name -->
+        <div class="mb-3">
+          <label
+            for="mortgageeName1"
+            class="block text-sm font-medium text-gray-700"
+          >
+            Mortgagee Name<span class="star">*</span>
+          </label>
+          <input
+            type="text"
+            id="mortgageeName1"
+            name="name_1__c"
+            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+            autocomplete="off"
+          />
+        </div>
+
+        <!-- Address Line 1 -->
+        <div class="mb-3">
+          <label
+            for="addressLine1_1"
+            class="block text-sm font-medium text-gray-700"
+          >
+            Address Line 1<span class="star">*</span>
+          </label>
+          <input
+            type="text"
+            id="addressLine1_1"
+            name="address_1__c"
+            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+            autocomplete="off"
+          />
+        </div>
+
+        <!-- Address Line 2 -->
+        <div class="mb-3">
+          <label
+            for="address2_1__c"
+            class="block text-sm font-medium text-gray-700"
+          >
+            Address Line 2
+          </label>
+          <input
+            type="text"
+            id="addressLine2_1"
+            name="Mortgagee_Address_Line_2_1__c"
+            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+            autocomplete="off"
+          />
+        </div>
+
+        <!-- City / State / Zip (one line) -->
+        <div class="mb-3 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label
+              for="city1"
+              class="block text-sm font-medium text-gray-700"
+            >
+              City<span class="star">*</span>
+            </label>
+            <input
+              type="text"
+              id="city1"
+              name="city_1__c"
+              class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+              autocomplete="off"
+            />
+          </div>
+
+          <div>
+            <label
+              for="state1"
+              class="block text-sm font-medium text-gray-700"
+            >
+              State<span class="star">*</span>
+            </label>
+            <select
+              id="state1"
+              name="state_1__c"
+              class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+            >
+              <option value="">Select</option>
+              <option value="AZ">AZ</option>
+              <option value="CA">CA</option>
+              <option value="CO">CO</option>
+            </select>
+          </div>
+
+          <div>
+            <label
+              for="zip1"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Zip<span class="star">*</span>
+            </label>
+            <input
+              type="text"
+              id="zip1"
+              name="zip_1__c"
+              class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+
+        <!-- Escrow / Loan ID (one line) -->
+        <div class="mb-3 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label
+              for="escrow1"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Escrow<span class="star">*</span>
+            </label>
+            <select
+              id="escrow1"
+              name="Escrow_1__c"
+              class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+            >
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+
+          <div>
+            <label
+              for="loanId1"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Loan ID<span class="star">*</span>
+            </label>
+            <input
+              type="text"
+              id="loanId1"
+              name="loanNumber_1__c"
+              class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- MORTGAGEE 2 (hidden initially) -->
+      <div
+        id="mortgagee2"
+        class="bg-gray-50 border rounded-xl p-6 shadow-inner mt-4 hidden"
+      >
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-semibold text-gray-700">
+            Mortgagee Information 2
+          </h3>
+          <button
+            type="button"
+            id="deleteMortgagee2"
+            class="bg-red-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-red-700"
+          >
+            Delete this item
+          </button>
+        </div>
+
+        <!-- Mortgagee Name -->
+        <div class="mb-3">
+          <label
+            for="mortgageeName2"
+            class="block text-sm font-medium text-gray-700"
+          >
+            Mortgagee Name<span class="star">*</span>
+          </label>
+          <input
+            type="text"
+            id="mortgageeName2"
+            name="name_2__c"
+            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+            autocomplete="off"
+          />
+        </div>
+
+        <!-- Address Line 1 -->
+        <div class="mb-3">
+          <label
+            for="addressLine1_2"
+            class="block text-sm font-medium text-gray-700"
+          >
+            Address Line 1<span class="star">*</span>
+          </label>
+          <input
+            type="text"
+            id="addressLine1_2"
+            name="address2_1__c"
+            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+            autocomplete="off"
+          />
+        </div>
+
+        <!-- Address Line 2 -->
+        <div class="mb-3">
+          <label
+            for="addressLine2_2"
+            class="block text-sm font-medium text-gray-700"
+          >
+            Address Line 2
+          </label>
+          <input
+            type="text"
+            id="addressLine2_2"
+            name="address2_2__c"
+            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+            autocomplete="off"
+          />
+        </div>
+
+        <!-- City / State / Zip (one line) -->
+        <div class="mb-3 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label
+              for="city2"
+              class="block text-sm font-medium text-gray-700"
+            >
+              City<span class="star">*</span>
+            </label>
+            <input
+              type="text"
+              id="city2"
+              name="city_2__c"
+              class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+              autocomplete="off"
+            />
+          </div>
+
+          <div>
+            <label
+              for="state2"
+              class="block text-sm font-medium text-gray-700"
+            >
+              State<span class="star">*</span>
+            </label>
+            <select
+              id="state2"
+              name="state_2__c"
+              class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+            >
+              <option value="">Select</option>
+              <option value="AZ">AZ</option>
+              <option value="CA">CA</option>
+              <option value="CO">CO</option>
+            </select>
+          </div>
+
+          <div>
+            <label
+              for="zip2"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Zip<span class="star">*</span>
+            </label>
+            <input
+              type="text"
+              id="zip2"
+              name="zip_2__c"
+              class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+
+        <!-- Escrow / Loan ID (one line) -->
+        <div class="mb-3 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label
+              for="escrow2"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Escrow<span class="star">*</span>
+            </label>
+            <select
+              id="escrow2"
+              name="Escrow_2__c"
+              class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+            >
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+
+          <div>
+            <label
+              for="loanId2"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Loan ID<span class="star">*</span>
+            </label>
+            <input
+              type="text"
+              id="loanId2"
+              name="loanNumber_2__c"
+              class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Add new mortgagee button -->
+      <div class="mt-4">
+        <button
+          type="button"
+          id="addMortgageeBtn"
+class="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 text-sm"        >
+          + Add a New Mortgagee
+        </button>
+      </div>
+
+      <!-- Hidden Salesforce fields -->
+      <input type="hidden" name="oid" value="00DU7000006EuID" />
+      <input
+        type="hidden"
+        name="retURL"
+        value="https://bennettandporter.com/"
+      />
+      <input type="hidden" name="first_name" value="Progressive EOI" />
+      <input type="hidden" name="last_name" value=" Demo Check" />
+      <input type="hidden" name="status" value="New" />
+      <input type="hidden" name="phone" value="28436836129" />
+      <input type="hidden" name="lead_source" value="Web Form" />
+      <input type="hidden" name="delete_Action_Form__c" value="1" />
+      <input
+        type="hidden"
+        id="formDataJson"
+        name="Form_Captured_Data__c"
+        value=""
+      />
+      <input
+        type="hidden"
+        id="formMissingData"
+        name="Form_Missing_Data__c"
+        value=""
+      />
+      <input type="hidden" name="Carrier__c" value="Progressive" />
+
+      <input
+        type="hidden"
+        name="company"
+        value="Caelius Test Progressive EOI"
+      />
+      <input
+        type="hidden"
+        name="Debug_Notes__c"
+        value="Progressive Test: 2025-06-27 07:21AM"
+      />
+
+      <!-- Review and Submit Button -->
+      <div class="flex justify-end mt-6">
+        <button
+          type="button"
+          id="reviewBtn"
+          class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-xl hover:bg-blue-700 transition"
+        >
+          Review and Submit
+        </button>
+      </div>
+    </form>
+
+    <!-- Confirmation Dialog -->
+    <div
+      id="dialog"
+      class="hidden fixed inset-0 flex items-center justify-center modal-bg z-50"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="dialogTitle"
+    >
+      <div
+        class="bg-white rounded-lg p-6 max-w-md w-full shadow-lg text-gray-800"
+      >
+        <h3 id="dialogTitle" class="text-lg font-semibold mb-4"></h3>
+        <ul id="missingFieldsList" class="mb-4 text-red-600 text-sm"></ul>
+        <div class="flex justify-end space-x-3" id="dialogButtons">
+          <button
+            id="proceedBtn"
+            class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 font-medium"
+          >
+            Proceed to End Request
+          </button>
+          <button
+            id="editBtn"
+            class="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400 font-medium"
+          >
+            Edit
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("mainForm");
+        const reviewBtn = document.getElementById("reviewBtn");
+        const dialog = document.getElementById("dialog");
+        const dialogTitle = document.getElementById("dialogTitle");
+        const missingFieldsList =
+          document.getElementById("missingFieldsList");
+        const proceedBtn = document.getElementById("proceedBtn");
+        const editBtn = document.getElementById("editBtn");
+
+        const mortgagee2 = document.getElementById("mortgagee2");
+        const addMortgageeBtn =
+          document.getElementById("addMortgageeBtn");
+        const deleteMortgagee2 =
+          document.getElementById("deleteMortgagee2");
+
+        // Date picker initialization
+        new Pikaday({
+          field: document.getElementById("00NU7000005zuLl"),
+          format: "MM/DD/YYYY",
+          toString(date) {
+            const day = String(date.getDate()).padStart(2, "0");
+            const month = String(date.getMonth() + 1).padStart(2, "0");
+            const year = date.getFullYear();
+            return `${month}/${day}/${year}`;
+          },
+          parse(dateString) {
+            const [month, day, year] = dateString.split("/");
+            return new Date(year, month - 1, day);
+          },
+        });
+
+        // show mortgagee 2
+addMortgageeBtn.addEventListener("click", () => {
+  mortgagee2.classList.remove("hidden");
+  addMortgageeBtn.disabled = true; // disable when second is shown
+  addMortgageeBtn.classList.add("opacity-60", "cursor-not-allowed");
+});
+
+// delete mortgagee 2
+deleteMortgagee2.addEventListener("click", () => {
+  mortgagee2.classList.add("hidden");
+  addMortgageeBtn.disabled = false; // re-enable
+  addMortgageeBtn.classList.remove("opacity-60", "cursor-not-allowed");
+
+  // clear fields of section 2
+  [
+    "mortgageeName2",
+    "addressLine1_2",
+    "addressLine2_2",
+    "city2",
+    "state2",
+    "zip2",
+    "escrow2",
+    "loanId2",
+  ].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.value = "";
+  });
+});
+
+        // Fields for validation (both mortgagee 1 and 2, but 2 only when visible)
+        const fieldData = [
+          { id: "email", label: "Email", type: "email" },
+          { id: "00NU7000005zuX3", label: "Policy Number" },
+          {
+            id: "00NU7000005zuLl",
+            label: "Effective Date (MM/DD/YYYY)",
+            type: "date",
+          },
+
+          // Mortgagee 1 (all required except addressLine2_1)
+          { id: "mortgageeName1", label: "Mortgagee Name 1" },
+          { id: "addressLine1_1", label: "Address Line 1 (1)" },
+          { id: "addressLine2_1", label: "Address Line 2 (1)", optional: true },
+          { id: "city1", label: "City (1)" },
+          { id: "state1", label: "State (1)" },
+          { id: "zip1", label: "Zip (1)" },
+          { id: "escrow1", label: "Escrow (1)" },
+          { id: "loanId1", label: "Loan ID (1)" },
+
+          // Mortgagee 2 (validate only when section visible; addressLine2_2 optional)
+          {
+            id: "mortgageeName2",
+            label: "Mortgagee Name 2",
+            dependsOnSection: "mortgagee2",
+          },
+          {
+            id: "addressLine1_2",
+            label: "Address Line 1 (2)",
+            dependsOnSection: "mortgagee2",
+          },
+          {
+            id: "addressLine2_2",
+            label: "Address Line 2 (2)",
+            optional: true,
+            dependsOnSection: "mortgagee2",
+          },
+          {
+            id: "city2",
+            label: "City (2)",
+            dependsOnSection: "mortgagee2",
+          },
+          {
+            id: "state2",
+            label: "State (2)",
+            dependsOnSection: "mortgagee2",
+          },
+          {
+            id: "zip2",
+            label: "Zip (2)",
+            dependsOnSection: "mortgagee2",
+          },
+          {
+            id: "escrow2",
+            label: "Escrow (2)",
+            dependsOnSection: "mortgagee2",
+          },
+          {
+            id: "loanId2",
+            label: "Loan ID (2)",
+            dependsOnSection: "mortgagee2",
+          },
+        ];
+
+        function isSectionVisible(sectionId) {
+          const sec = document.getElementById(sectionId);
+          if (!sec) return false;
+          return !sec.classList.contains("hidden");
+        }
+
+        // Validation function
+        function validateFields() {
+          const missing = [];
+          fieldData.forEach((field) => {
+            // Skip fields tied to mortgagee 2 when section hidden
+            if (
+              field.dependsOnSection &&
+              !isSectionVisible(field.dependsOnSection)
+            ) {
+              return;
+            }
+
+            if (field.type === "email") {
+              const input = document.getElementById(field.id);
+              if (!input.value.trim() || !input.checkValidity()) {
+                missing.push(field.label);
+              }
+            } else if (field.type === "date") {
+              const val =
+                document.getElementById(field.id).value.trim();
+              const dateRegex =
+                /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/(1[0-9]{3}|2[0-9]{3}|30[0-9]{2})$/;
+              if (!val || !dateRegex.test(val)) {
+                missing.push(field.label);
+              }
+            } else {
+              const input = document.getElementById(field.id);
+              if (!input.value.trim() && !field.optional) {
+                missing.push(field.label);
+              }
+            }
+          });
+          return missing;
+        }
+
+        // Review button handler
+        reviewBtn.addEventListener("click", () => {
+          const missing = validateFields();
+          proceedBtn.classList.remove("hidden");
+
+          const missingData = [];
+          const completedData = [];
+
+          fieldData.forEach((field) => {
+            if (
+              field.dependsOnSection &&
+              !isSectionVisible(field.dependsOnSection)
+            ) {
+              return; // skip invisible mortgagee 2 fields
+            }
+
+            const inputElem = document.getElementById(field.id);
+            if (!inputElem) return;
+
+            let val = (inputElem.value || "").trim();
+            let isMissing = false;
+
+            if (!val && !field.optional) {
+              isMissing = true;
+            } else if (field.type === "email") {
+              if (!inputElem.checkValidity()) isMissing = true;
+            } else if (field.type === "date") {
+              const dateRegex =
+                /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/(1[0-9]{3}|2[0-9]{3}|30[0-9]{2})$/;
+              if (!dateRegex.test(val)) isMissing = true;
+            }
+
+            if (isMissing) {
+              missingData.push(field.label);
+            } else if (val) {
+              completedData.push(`${field.label} = ${val}`);
+            }
+          });
+
+          const formCapturedDataStr = completedData.join("\n");
+          const formMissingDataStr = missingData.join("\n");
+
+          const formDataJsonInput =
+            document.getElementById("formDataJson");
+          if (formDataJsonInput) {
+            formDataJsonInput.value = formCapturedDataStr;
+          }
+
+          const formMissingHidden =
+            document.getElementById("formMissingData");
+          if (formMissingHidden) {
+            formMissingHidden.value = formMissingDataStr;
+          }
+
+          if (missing.length) {
+            dialogTitle.textContent =
+              "Below Mandatory Fields are missing and the Team will contact you shortly.";
+            missingFieldsList.innerHTML = missing
+              .map((f) => `<li>${f}</li>`)
+              .join("");
+          } else {
+            dialogTitle.textContent =
+              "All mandatory fields are completed. Ready to submit your request?";
+            missingFieldsList.innerHTML = "";
+          }
+
+          dialog.classList.remove("hidden");
+        });
+
+        // Edit button handler
+        editBtn.addEventListener("click", () => {
+          dialog.classList.add("hidden");
+        });
+
+        // Proceed button handler
+        proceedBtn.addEventListener("click", () => {
+          dialog.classList.add("hidden");
+          form.submit();
+        });
+
+        window.addEventListener("click", (e) => {
+          if (e.target === dialog) {
+            dialog.classList.add("hidden");
+          }
+        });
+
+        window.addEventListener("keydown", (e) => {
+          if (
+            e.key === "Escape" &&
+            !dialog.classList.contains("hidden")
+          ) {
+            dialog.classList.add("hidden");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
