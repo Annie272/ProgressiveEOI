@@ -134,6 +134,25 @@
         <h3 class="text-xl font-semibold mb-4 text-gray-700">
           Mortgagee Information 
         </h3>
+                <!-- Mortgagee Number -->
+        <div class="mb-3">
+          <label
+            for="mortgageeNumber1"
+            class="block text-sm font-medium text-gray-700"
+          >
+            Mortgagee Number <span class="star">*</span>
+          </label>
+          <select
+            id="mortgageeNumber"
+            name="Mortgagee_Number__c"
+            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
+          >
+            <option value="">--Select--</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
+        </div>
+
 
         <!-- Mortgagee Name -->
         <div class="mb-3">
@@ -478,6 +497,8 @@
           },
 
           // Mortgagee 1 (all required except addressLine2_1)
+         { id: "mortgageeNumber", label: "Mortgagee Number" },
+
           { id: "mortgageeName1", label: "Mortgagee Name " },
           { id: "addressLine1_1", label: "Address Line 1 " },
           { id: "addressLine2_1", label: "Address Line 2 ", optional: true },
