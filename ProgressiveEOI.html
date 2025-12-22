@@ -132,7 +132,7 @@
         class="bg-gray-50 border rounded-xl p-6 shadow-inner mt-8"
       >
         <h3 class="text-xl font-semibold mb-4 text-gray-700">
-          Mortgagee Information 1
+          Mortgagee Information 
         </h3>
 
         <!-- Mortgagee Name -->
@@ -345,243 +345,8 @@
         </div>
       </div>
 
-      <!-- MORTGAGEE 2 (hidden initially) -->
-      <div
-        id="mortgagee2"
-        class="bg-gray-50 border rounded-xl p-6 shadow-inner mt-4 hidden"
-      >
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-xl font-semibold text-gray-700">
-            Mortgagee Information 2
-          </h3>
-          <button
-            type="button"
-            id="deleteMortgagee2"
-            class="bg-red-600 text-white px-3 py-1 rounded-lg text-sm hover:bg-red-700"
-          >
-            Delete this item
-          </button>
-        </div>
-
-        <!-- Mortgagee Name -->
-        <div class="mb-3">
-          <label
-            for="mortgageeName2"
-            class="block text-sm font-medium text-gray-700"
-          >
-            Mortgagee Name<span class="star">*</span>
-          </label>
-          <input
-            type="text"
-            id="mortgageeName2"
-            name="name_2__c"
-            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
-            autocomplete="off"
-          />
-        </div>
-
-        <!-- Address Line 1 -->
-        <div class="mb-3">
-          <label
-            for="addressLine1_2"
-            class="block text-sm font-medium text-gray-700"
-          >
-            Address Line 1<span class="star">*</span>
-          </label>
-          <input
-            type="text"
-            id="addressLine1_2"
-            name="address2_1__c"
-            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
-            autocomplete="off"
-          />
-        </div>
-
-        <!-- Address Line 2 -->
-        <div class="mb-3">
-          <label
-            for="addressLine2_2"
-            class="block text-sm font-medium text-gray-700"
-          >
-            Address Line 2
-          </label>
-          <input
-            type="text"
-            id="addressLine2_2"
-            name="address2_2__c"
-            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
-            autocomplete="off"
-          />
-        </div>
-
-        <!-- City / State / Zip (one line) -->
-        <div class="mb-3 grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div>
-            <label
-              for="city2"
-              class="block text-sm font-medium text-gray-700"
-            >
-              City<span class="star">*</span>
-            </label>
-            <input
-              type="text"
-              id="city2"
-              name="city_2__c"
-              class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
-              autocomplete="off"
-            />
-          </div>
-
-          <div>
-            <label
-              for="state2"
-              class="block text-sm font-medium text-gray-700"
-            >
-              State<span class="star">*</span>
-            </label>
-            <select
-              id="state2"
-              name="state_2__c"
-              class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
-            >
-              <option value="">--Select--</option>
-              <option value="Arizona">Arizona</option>
-  <option value="Florida">Florida</option>
-  <option value="Alabama">Alabama</option>
-  <option value="Alaska">Alaska</option>
-  <option value="Alberta">Alberta</option>
-  <option value="Arkansas">Arkansas</option>
-  <option value="British Columbia">British Columbia</option>
-  <option value="California">California</option>
-  <option value="Colorado">Colorado</option>
-  <option value="Connecticut">Connecticut</option>
-  <option value="Delaware">Delaware</option>
-  <option value="Dist Of Columbia">Dist Of Columbia</option>
-  <option value="Georgia">Georgia</option>
-  <option value="Guam">Guam</option>
-  <option value="Hawaii">Hawaii</option>
-  <option value="Idaho">Idaho</option>
-  <option value="Illinois">Illinois</option>
-  <option value="Indiana">Indiana</option>
-  <option value="International">International</option>
-  <option value="Iowa">Iowa</option>
-  <option value="Kansas">Kansas</option>
-  <option value="Kentucky">Kentucky</option>
-  <option value="Louisiana">Louisiana</option>
-  <option value="Maine">Maine</option>
-  <option value="Manitoba">Manitoba</option>
-  <option value="Maryland">Maryland</option>
-  <option value="Massachusetts">Massachusetts</option>
-  <option value="Mexico">Mexico</option>
-  <option value="Michigan">Michigan</option>
-  <option value="Minnesota">Minnesota</option>
-  <option value="Mississippi">Mississippi</option>
-  <option value="Missouri">Missouri</option>
-  <option value="Montana">Montana</option>
-  <option value="Nebraska">Nebraska</option>
-  <option value="Nevada">Nevada</option>
-  <option value="New Brunswick">New Brunswick</option>
-  <option value="New Hampshire">New Hampshire</option>
-  <option value="New Jersey">New Jersey</option>
-  <option value="New Mexico">New Mexico</option>
-  <option value="New York">New York</option>
-  <option value="Newfoundland">Newfoundland</option>
-  <option value="North Carolina">North Carolina</option>
-  <option value="North Dakota">North Dakota</option>
-  <option value="Northwest Territories">Northwest Territories</option>
-  <option value="Nova Scotia">Nova Scotia</option>
-  <option value="Ohio">Ohio</option>
-  <option value="Oklahoma">Oklahoma</option>
-  <option value="Ontario">Ontario</option>
-  <option value="Oregon">Oregon</option>
-  <option value="Pennsylvania">Pennsylvania</option>
-  <option value="Prince Edward Island">Prince Edward Island</option>
-  <option value="Puerto Rico">Puerto Rico</option>
-  <option value="Quebec">Quebec</option>
-  <option value="Rhode Island">Rhode Island</option>
-  <option value="Saskatchewan">Saskatchewan</option>
-  <option value="South Carolina">South Carolina</option>
-  <option value="South Dakota">South Dakota</option>
-  <option value="Tennessee">Tennessee</option>
-  <option value="Texas">Texas</option>
-  <option value="Utah">Utah</option>
-  <option value="Vermont">Vermont</option>
-  <option value="Virgin Islands">Virgin Islands</option>
-  <option value="Virginia">Virginia</option>
-  <option value="Washington">Washington</option>
-  <option value="West Virginia">West Virginia</option>
-  <option value="Wisconsin">Wisconsin</option>
-  <option value="Wyoming">Wyoming</option>
-  <option value="Yukon Territory">Yukon Territory</option>
-  <option value="District of Columbia">District of Columbia</option>
-  <option value="Nunavut">Nunavut</option>
-            </select>
-          </div>
-
-          <div>
-            <label
-              for="zip2"
-              class="block text-sm font-medium text-gray-700"
-            >
-              Zip<span class="star">*</span>
-            </label>
-            <input
-              type="text"
-              id="zip2"
-              name="zip_2__c"
-              class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
-              autocomplete="off"
-            />
-          </div>
-        </div>
-
-        <!-- Escrow / Loan ID (one line) -->
-        <div class="mb-3 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label
-              for="escrow2"
-              class="block text-sm font-medium text-gray-700"
-            >
-              Escrow<span class="star">*</span>
-            </label>
-            <select
-              id="escrow2"
-              name="Escrow_2__c"
-              class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
-            >
-              <option value="">Select</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-            </select>
-          </div>
-
-          <div>
-            <label
-              for="loanId2"
-              class="block text-sm font-medium text-gray-700"
-            >
-              Loan ID<span class="star">*</span>
-            </label>
-            <input
-              type="text"
-              id="loanId2"
-              name="loanNumber_2__c"
-              class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
-              autocomplete="off"
-            />
-          </div>
-        </div>
-      </div>
-
-      <!-- Add new mortgagee button -->
-      <div class="mt-4">
-        <button
-          type="button"
-          id="addMortgageeBtn"
-class="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 text-sm"        >
-          + Add a New Mortgagee
-        </button>
-      </div>
+    
+      
 
       <!-- Hidden Salesforce fields -->
       <input type="hidden" name="oid" value="00DU7000006EuID" />
@@ -676,11 +441,7 @@ class="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 text-
         const proceedBtn = document.getElementById("proceedBtn");
         const editBtn = document.getElementById("editBtn");
 
-        const mortgagee2 = document.getElementById("mortgagee2");
-        const addMortgageeBtn =
-          document.getElementById("addMortgageeBtn");
-        const deleteMortgagee2 =
-          document.getElementById("deleteMortgagee2");
+      
 
         // Date picker initialization
         new Pikaday({
@@ -699,33 +460,12 @@ class="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 text-
         });
 
         // show mortgagee 2
-addMortgageeBtn.addEventListener("click", () => {
-  mortgagee2.classList.remove("hidden");
-  addMortgageeBtn.disabled = true; // disable when second is shown
-  addMortgageeBtn.classList.add("opacity-60", "cursor-not-allowed");
-});
 
 // delete mortgagee 2
-deleteMortgagee2.addEventListener("click", () => {
-  mortgagee2.classList.add("hidden");
-  addMortgageeBtn.disabled = false; // re-enable
-  addMortgageeBtn.classList.remove("opacity-60", "cursor-not-allowed");
+
 
   // clear fields of section 2
-  [
-    "mortgageeName2",
-    "addressLine1_2",
-    "addressLine2_2",
-    "city2",
-    "state2",
-    "zip2",
-    "escrow2",
-    "loanId2",
-  ].forEach((id) => {
-    const el = document.getElementById(id);
-    if (el) el.value = "";
-  });
-});
+  
 
         // Fields for validation (both mortgagee 1 and 2, but 2 only when visible)
         const fieldData = [
@@ -745,50 +485,10 @@ deleteMortgagee2.addEventListener("click", () => {
           { id: "state1", label: "State (1)" },
           { id: "zip1", label: "Zip (1)" },
           { id: "escrow1", label: "Escrow (1)" },
-          { id: "loanId1", label: "Loan ID (1)" },
+          { id: "loanId1", label: "Loan ID (1)" }
 
           // Mortgagee 2 (validate only when section visible; addressLine2_2 optional)
-          {
-            id: "mortgageeName2",
-            label: "Mortgagee Name 2",
-            dependsOnSection: "mortgagee2",
-          },
-          {
-            id: "addressLine1_2",
-            label: "Address Line 1 (2)",
-            dependsOnSection: "mortgagee2",
-          },
-          {
-            id: "addressLine2_2",
-            label: "Address Line 2 (2)",
-            optional: true,
-            dependsOnSection: "mortgagee2",
-          },
-          {
-            id: "city2",
-            label: "City (2)",
-            dependsOnSection: "mortgagee2",
-          },
-          {
-            id: "state2",
-            label: "State (2)",
-            dependsOnSection: "mortgagee2",
-          },
-          {
-            id: "zip2",
-            label: "Zip (2)",
-            dependsOnSection: "mortgagee2",
-          },
-          {
-            id: "escrow2",
-            label: "Escrow (2)",
-            dependsOnSection: "mortgagee2",
-          },
-          {
-            id: "loanId2",
-            label: "Loan ID (2)",
-            dependsOnSection: "mortgagee2",
-          },
+          
         ];
 
         function isSectionVisible(sectionId) {
