@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Progressive Form</title>
+    <title>Progressive EOI Form</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -53,16 +53,15 @@
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-2"
-            >Select the Request Type:</label
-          >
+          <label class="block text-sm font-medium text-gray-700 mb-2">
+            Select the Request Type:<span class="star">*</span>
+          </label>
           <div class="flex space-x-4 mb-2">
             <label class="inline-flex items-center ">
               <input
                 type="radio"
                 name="Is_this_a_quote_or_a_change_request__c"
                 value="Quote"
-                required
                 class="mr-2 "
               />Quote
             </label>
@@ -71,7 +70,6 @@
                 type="radio"
                 name="Is_this_a_quote_or_a_change_request__c"
                 value="Endorse"
-                required
                 class="mr-2"
               />Endorsement
             </label>
@@ -134,7 +132,8 @@
         <h3 class="text-xl font-semibold mb-4 text-gray-700">
           Mortgagee Information 
         </h3>
-                <!-- Mortgagee Number -->
+        
+        <!-- Mortgagee Number -->
         <div class="mb-3">
           <label
             for="mortgageeNumber1"
@@ -152,7 +151,6 @@
             <option value="2">2</option>
           </select>
         </div>
-
 
         <!-- Mortgagee Name -->
         <div class="mb-3">
@@ -236,76 +234,76 @@
               class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm"
             >
               <option value="">--Select--</option>
-             <option value="Arizona">Arizona</option>
-  <option value="Florida">Florida</option>
-  <option value="Alabama">Alabama</option>
-  <option value="Alaska">Alaska</option>
-  <option value="Alberta">Alberta</option>
-  <option value="Arkansas">Arkansas</option>
-  <option value="British Columbia">British Columbia</option>
-  <option value="California">California</option>
-  <option value="Colorado">Colorado</option>
-  <option value="Connecticut">Connecticut</option>
-  <option value="Delaware">Delaware</option>
-  <option value="Dist Of Columbia">Dist Of Columbia</option>
-  <option value="Georgia">Georgia</option>
-  <option value="Guam">Guam</option>
-  <option value="Hawaii">Hawaii</option>
-  <option value="Idaho">Idaho</option>
-  <option value="Illinois">Illinois</option>
-  <option value="Indiana">Indiana</option>
-  <option value="International">International</option>
-  <option value="Iowa">Iowa</option>
-  <option value="Kansas">Kansas</option>
-  <option value="Kentucky">Kentucky</option>
-  <option value="Louisiana">Louisiana</option>
-  <option value="Maine">Maine</option>
-  <option value="Manitoba">Manitoba</option>
-  <option value="Maryland">Maryland</option>
-  <option value="Massachusetts">Massachusetts</option>
-  <option value="Mexico">Mexico</option>
-  <option value="Michigan">Michigan</option>
-  <option value="Minnesota">Minnesota</option>
-  <option value="Mississippi">Mississippi</option>
-  <option value="Missouri">Missouri</option>
-  <option value="Montana">Montana</option>
-  <option value="Nebraska">Nebraska</option>
-  <option value="Nevada">Nevada</option>
-  <option value="New Brunswick">New Brunswick</option>
-  <option value="New Hampshire">New Hampshire</option>
-  <option value="New Jersey">New Jersey</option>
-  <option value="New Mexico">New Mexico</option>
-  <option value="New York">New York</option>
-  <option value="Newfoundland">Newfoundland</option>
-  <option value="North Carolina">North Carolina</option>
-  <option value="North Dakota">North Dakota</option>
-  <option value="Northwest Territories">Northwest Territories</option>
-  <option value="Nova Scotia">Nova Scotia</option>
-  <option value="Ohio">Ohio</option>
-  <option value="Oklahoma">Oklahoma</option>
-  <option value="Ontario">Ontario</option>
-  <option value="Oregon">Oregon</option>
-  <option value="Pennsylvania">Pennsylvania</option>
-  <option value="Prince Edward Island">Prince Edward Island</option>
-  <option value="Puerto Rico">Puerto Rico</option>
-  <option value="Quebec">Quebec</option>
-  <option value="Rhode Island">Rhode Island</option>
-  <option value="Saskatchewan">Saskatchewan</option>
-  <option value="South Carolina">South Carolina</option>
-  <option value="South Dakota">South Dakota</option>
-  <option value="Tennessee">Tennessee</option>
-  <option value="Texas">Texas</option>
-  <option value="Utah">Utah</option>
-  <option value="Vermont">Vermont</option>
-  <option value="Virgin Islands">Virgin Islands</option>
-  <option value="Virginia">Virginia</option>
-  <option value="Washington">Washington</option>
-  <option value="West Virginia">West Virginia</option>
-  <option value="Wisconsin">Wisconsin</option>
-  <option value="Wyoming">Wyoming</option>
-  <option value="Yukon Territory">Yukon Territory</option>
-  <option value="District of Columbia">District of Columbia</option>
-  <option value="Nunavut">Nunavut</option>
+              <option value="Arizona">Arizona</option>
+              <option value="Florida">Florida</option>
+              <option value="Alabama">Alabama</option>
+              <option value="Alaska">Alaska</option>
+              <option value="Alberta">Alberta</option>
+              <option value="Arkansas">Arkansas</option>
+              <option value="British Columbia">British Columbia</option>
+              <option value="California">California</option>
+              <option value="Colorado">Colorado</option>
+              <option value="Connecticut">Connecticut</option>
+              <option value="Delaware">Delaware</option>
+              <option value="Dist Of Columbia">Dist Of Columbia</option>
+              <option value="Georgia">Georgia</option>
+              <option value="Guam">Guam</option>
+              <option value="Hawaii">Hawaii</option>
+              <option value="Idaho">Idaho</option>
+              <option value="Illinois">Illinois</option>
+              <option value="Indiana">Indiana</option>
+              <option value="International">International</option>
+              <option value="Iowa">Iowa</option>
+              <option value="Kansas">Kansas</option>
+              <option value="Kentucky">Kentucky</option>
+              <option value="Louisiana">Louisiana</option>
+              <option value="Maine">Maine</option>
+              <option value="Manitoba">Manitoba</option>
+              <option value="Maryland">Maryland</option>
+              <option value="Massachusetts">Massachusetts</option>
+              <option value="Mexico">Mexico</option>
+              <option value="Michigan">Michigan</option>
+              <option value="Minnesota">Minnesota</option>
+              <option value="Mississippi">Mississippi</option>
+              <option value="Missouri">Missouri</option>
+              <option value="Montana">Montana</option>
+              <option value="Nebraska">Nebraska</option>
+              <option value="Nevada">Nevada</option>
+              <option value="New Brunswick">New Brunswick</option>
+              <option value="New Hampshire">New Hampshire</option>
+              <option value="New Jersey">New Jersey</option>
+              <option value="New Mexico">New Mexico</option>
+              <option value="New York">New York</option>
+              <option value="Newfoundland">Newfoundland</option>
+              <option value="North Carolina">North Carolina</option>
+              <option value="North Dakota">North Dakota</option>
+              <option value="Northwest Territories">Northwest Territories</option>
+              <option value="Nova Scotia">Nova Scotia</option>
+              <option value="Ohio">Ohio</option>
+              <option value="Oklahoma">Oklahoma</option>
+              <option value="Ontario">Ontario</option>
+              <option value="Oregon">Oregon</option>
+              <option value="Pennsylvania">Pennsylvania</option>
+              <option value="Prince Edward Island">Prince Edward Island</option>
+              <option value="Puerto Rico">Puerto Rico</option>
+              <option value="Quebec">Quebec</option>
+              <option value="Rhode Island">Rhode Island</option>
+              <option value="Saskatchewan">Saskatchewan</option>
+              <option value="South Carolina">South Carolina</option>
+              <option value="South Dakota">South Dakota</option>
+              <option value="Tennessee">Tennessee</option>
+              <option value="Texas">Texas</option>
+              <option value="Utah">Utah</option>
+              <option value="Vermont">Vermont</option>
+              <option value="Virgin Islands">Virgin Islands</option>
+              <option value="Virginia">Virginia</option>
+              <option value="Washington">Washington</option>
+              <option value="West Virginia">West Virginia</option>
+              <option value="Wisconsin">Wisconsin</option>
+              <option value="Wyoming">Wyoming</option>
+              <option value="Yukon Territory">Yukon Territory</option>
+              <option value="District of Columbia">District of Columbia</option>
+              <option value="Nunavut">Nunavut</option>
             </select>
           </div>
 
@@ -363,9 +361,6 @@
           </div>
         </div>
       </div>
-
-    
-      
 
       <!-- Hidden Salesforce fields -->
       <input type="hidden" name="oid" value="00DU7000006EuID" />
@@ -455,12 +450,9 @@
         const reviewBtn = document.getElementById("reviewBtn");
         const dialog = document.getElementById("dialog");
         const dialogTitle = document.getElementById("dialogTitle");
-        const missingFieldsList =
-          document.getElementById("missingFieldsList");
+        const missingFieldsList = document.getElementById("missingFieldsList");
         const proceedBtn = document.getElementById("proceedBtn");
         const editBtn = document.getElementById("editBtn");
-
-      
 
         // Date picker initialization
         new Pikaday({
@@ -478,15 +470,7 @@
           },
         });
 
-        // show mortgagee 2
-
-// delete mortgagee 2
-
-
-  // clear fields of section 2
-  
-
-        // Fields for validation (both mortgagee 1 and 2, but 2 only when visible)
+        // Fields for validation
         const fieldData = [
           { id: "email", label: "Email", type: "email" },
           { id: "00NU7000005zuX3", label: "Policy Number" },
@@ -495,51 +479,45 @@
             label: "Effective Date (MM/DD/YYYY)",
             type: "date",
           },
-
-          // Mortgagee 1 (all required except addressLine2_1)
-         { id: "mortgageeNumber", label: "Mortgagee Number" },
-
-          { id: "mortgageeName1", label: "Mortgagee Name " },
-          { id: "addressLine1_1", label: "Address Line 1 " },
-          { id: "addressLine2_1", label: "Address Line 2 ", optional: true },
-          { id: "city1", label: "City " },
+          // Mortgagee 1 fields (all required except addressLine2_1)
+          { id: "mortgageeNumber", label: "Mortgagee Number" },
+          { id: "mortgageeName1", label: "Mortgagee Name" },
+          { id: "addressLine1_1", label: "Address Line 1" },
+          { id: "addressLine2_1", label: "Address Line 2", optional: true },
+          { id: "city1", label: "City" },
           { id: "state1", label: "State" },
-          { id: "zip1", label: "Zip " },
+          { id: "zip1", label: "Zip" },
           { id: "escrow1", label: "Escrow" },
-          { id: "loanId1", label: "Loan ID " }
-
-          // Mortgagee 2 (validate only when section visible; addressLine2_2 optional)
-          
+          { id: "loanId1", label: "Loan ID" }
         ];
 
-        function isSectionVisible(sectionId) {
-          const sec = document.getElementById(sectionId);
-          if (!sec) return false;
-          return !sec.classList.contains("hidden");
-        }
-
-        // Validation function
+        // Validation function with separate request type check
         function validateFields() {
           const missing = [];
-          fieldData.forEach((field) => {
-            // Skip fields tied to mortgagee 2 when section hidden
-            if (
-              field.dependsOnSection &&
-              !isSectionVisible(field.dependsOnSection)
-            ) {
-              return;
+          
+          // Check Request Type radio buttons FIRST
+          const requestTypeRadios = document.getElementsByName("Is_this_a_quote_or_a_change_request__c");
+          let requestTypeSelected = false;
+          for (let radio of requestTypeRadios) {
+            if (radio.checked) {
+              requestTypeSelected = true;
+              break;
             }
+          }
+          if (!requestTypeSelected) {
+            missing.push("Request Type");
+          }
 
+          // Check regular fields
+          fieldData.forEach((field) => {
             if (field.type === "email") {
               const input = document.getElementById(field.id);
               if (!input.value.trim() || !input.checkValidity()) {
                 missing.push(field.label);
               }
             } else if (field.type === "date") {
-              const val =
-                document.getElementById(field.id).value.trim();
-              const dateRegex =
-                /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/(1[0-9]{3}|2[0-9]{3}|30[0-9]{2})$/;
+              const val = document.getElementById(field.id).value.trim();
+              const dateRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/(1[0-9]{3}|2[0-9]{3}|30[0-9]{2})$/;
               if (!val || !dateRegex.test(val)) {
                 missing.push(field.label);
               }
@@ -550,6 +528,7 @@
               }
             }
           });
+
           return missing;
         }
 
@@ -561,14 +540,21 @@
           const missingData = [];
           const completedData = [];
 
-          fieldData.forEach((field) => {
-            if (
-              field.dependsOnSection &&
-              !isSectionVisible(field.dependsOnSection)
-            ) {
-              return; // skip invisible mortgagee 2 fields
+          // Check Request Type for completed data FIRST
+          const requestTypeRadios = document.getElementsByName("Is_this_a_quote_or_a_change_request__c");
+          let requestTypeValue = "";
+          for (let radio of requestTypeRadios) {
+            if (radio.checked) {
+              requestTypeValue = radio.value;
+              break;
             }
+          }
+          if (requestTypeValue) {
+            completedData.push(`Request Type = ${requestTypeValue}`);
+          }
 
+          // Check regular fields
+          fieldData.forEach((field) => {
             const inputElem = document.getElementById(field.id);
             if (!inputElem) return;
 
@@ -580,8 +566,7 @@
             } else if (field.type === "email") {
               if (!inputElem.checkValidity()) isMissing = true;
             } else if (field.type === "date") {
-              const dateRegex =
-                /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/(1[0-9]{3}|2[0-9]{3}|30[0-9]{2})$/;
+              const dateRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/(1[0-9]{3}|2[0-9]{3}|30[0-9]{2})$/;
               if (!dateRegex.test(val)) isMissing = true;
             }
 
@@ -595,14 +580,12 @@
           const formCapturedDataStr = completedData.join("\n");
           const formMissingDataStr = missingData.join("\n");
 
-          const formDataJsonInput =
-            document.getElementById("formDataJson");
+          const formDataJsonInput = document.getElementById("formDataJson");
           if (formDataJsonInput) {
             formDataJsonInput.value = formCapturedDataStr;
           }
 
-          const formMissingHidden =
-            document.getElementById("formMissingData");
+          const formMissingHidden = document.getElementById("formMissingData");
           if (formMissingHidden) {
             formMissingHidden.value = formMissingDataStr;
           }
