@@ -52,33 +52,6 @@
           />
         </div>
 
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-2">
-            Select the Request Type:<span class="star">*</span>
-          </label>
-          <div class="flex space-x-4 mb-2">
-            <label class="inline-flex items-center ">
-              <input
-                type="radio"
-                name="Is_this_a_quote_or_a_change_request__c"
-                value="Quote"
-                class="mr-2 "
-              />Quote
-            </label>
-            <label class="inline-flex items-center">
-              <input
-                type="radio"
-                name="Is_this_a_quote_or_a_change_request__c"
-                value="Endorse"
-                class="mr-2"
-              />Endorsement
-            </label>
-          </div>
-          <div id="quotePolicyError" class="error-message hidden">
-            Please select an option
-          </div>
-        </div>
-
         <!-- Policy Action -->
         <input
           type="hidden"
@@ -470,7 +443,7 @@
           },
         });
 
-        // Fields for validation
+        // Fields for validation (Request Type removed)
         const fieldData = [
           { id: "email", label: "Email", type: "email" },
           { id: "00NU7000005zuX3", label: "Policy Number" },
@@ -491,24 +464,11 @@
           { id: "loanId1", label: "Loan ID" }
         ];
 
-        // Validation function with separate request type check
+        // Simplified validation function (Request Type check removed)
         function validateFields() {
           const missing = [];
           
-          // Check Request Type radio buttons FIRST
-          const requestTypeRadios = document.getElementsByName("Is_this_a_quote_or_a_change_request__c");
-          let requestTypeSelected = false;
-          for (let radio of requestTypeRadios) {
-            if (radio.checked) {
-              requestTypeSelected = true;
-              break;
-            }
-          }
-          if (!requestTypeSelected) {
-            missing.push("Request Type");
-          }
-
-          // Check regular fields
+          // Check regular fields only
           fieldData.forEach((field) => {
             if (field.type === "email") {
               const input = document.getElementById(field.id);
@@ -532,7 +492,7 @@
           return missing;
         }
 
-        // Review button handler
+        // Review button handler (Request Type logic removed)
         reviewBtn.addEventListener("click", () => {
           const missing = validateFields();
           proceedBtn.classList.remove("hidden");
@@ -540,20 +500,7 @@
           const missingData = [];
           const completedData = [];
 
-          // Check Request Type for completed data FIRST
-          const requestTypeRadios = document.getElementsByName("Is_this_a_quote_or_a_change_request__c");
-          let requestTypeValue = "";
-          for (let radio of requestTypeRadios) {
-            if (radio.checked) {
-              requestTypeValue = radio.value;
-              break;
-            }
-          }
-          if (requestTypeValue) {
-            completedData.push(`Request Type = ${requestTypeValue}`);
-          }
-
-          // Check regular fields
+          // Check regular fields only
           fieldData.forEach((field) => {
             const inputElem = document.getElementById(field.id);
             if (!inputElem) return;
